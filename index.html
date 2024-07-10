@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Profit Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h1 class="text-2xl font-bold mb-6 text-center text-gray-800">Vendor Profit Calculator</h1>
+        <form id="calculator-form">
+            <div class="mb-5">
+                <label for="category" class="block text-sm font-medium text-gray-700 mb-2">Category</label>
+                <select id="category" class="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option value="10" data-drop-shipping="250" data-jumia-express="120">Audio & HiFi</option>
+                    <option value="15" data-drop-shipping="60" data-jumia-express="30">Beauty Appliances</option>
+                    <option value="15" data-drop-shipping="120" data-jumia-express="60">Bedding</option>
+                    <option value="18" data-drop-shipping="400" data-jumia-express="350">Bulky Sporting Goods</option>
+                    <option value="10" data-drop-shipping="120" data-jumia-express="60">Camera</option>
+                    <option value="8" data-drop-shipping="250" data-jumia-express="120">Computers</option>
+                    <option value="10" data-drop-shipping="120" data-jumia-express="60">Cooktops</option>
+                    <option value="15" data-drop-shipping="120" data-jumia-express="60">Desktop & Peripherals</option>
+                    <option value="15" data-drop-shipping="60" data-jumia-express="30">Diapers</option>
+                    <option value="15" data-drop-shipping="60" data-jumia-express="30">Electronics Accessories</option>
+                    <option value="15" data-drop-shipping="60" data-jumia-express="30">Fashion</option>
+                    <option value="12" data-drop-shipping="120" data-jumia-express="60">Gaming Consoles</option>
+                    <option value="20" data-drop-shipping="250" data-jumia-express="60">Grocery</option>
+                    <option value="22" data-drop-shipping="60" data-jumia-express="30">Health & Beauty</option>
+                    <option value="20" data-drop-shipping="120" data-jumia-express="60">Home</option>
+                    <option value="20" data-drop-shipping="60" data-jumia-express="60">Kids & Baby</option>
+                    <option value="10" data-drop-shipping="400" data-jumia-express="350">Large Appliances</option>
+                    <option value="15" data-drop-shipping="120" data-jumia-express="60">Lighting</option>
+                    <option value="20" data-drop-shipping="120" data-jumia-express="60">Luggage & Travel Gear</option>
+                    <option value="6" data-drop-shipping="120" data-jumia-express="60">Mobile Phones</option>
+                    <option value="20" data-drop-shipping="120" data-jumia-express="60">Other</option>
+                    <option value="12" data-drop-shipping="120" data-jumia-express="60">Small Appliances</option>
+                    <option value="18" data-drop-shipping="350" data-jumia-express="350">Sporting Goods</option>
+                    <option value="10" data-drop-shipping="120" data-jumia-express="60">Tablets</option>
+                    <option value="8" data-drop-shipping="400" data-jumia-express="200">Televisions</option>
+                    <option value="15" data-drop-shipping="120" data-jumia-express="60">TV Accessories</option>
+                    <option value="15" data-drop-shipping="120" data-jumia-express="60">Video Games</option>
+                    <option value="10" data-drop-shipping="120" data-jumia-express="60">Water Dispensers</option>
+                </select>
+            </div>
+            <div class="mb-5">
+                <label for="price" class="block text-sm font-medium text-gray-700 mb-2">Selling Price (KSH)</label>
+                <input type="number" id="price" class="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+            </div>
+            <div class="mb-5">
+                <label for="buying-price" class="block text-sm font-medium text-gray-700 mb-2">Buying Price (KSH)</label>
+                <input type="number" id="buying-price" class="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+            </div>
+            <div class="mb-5">
+                <label for="shipping-method" class="block text-sm font-medium text-gray-700 mb-2">Shipping Method</label>
+                <select id="shipping-method" class="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option value="drop-shipping">Drop Shipping</option>
+                    <option value="jumia-express">Jumia Express</option>
+                </select>
+            </div>
+            <button type="button" onclick="calculateProfit()" class="w-full bg-blue-500 text-white py-2 rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Calculate Profit</button>
+        </form>
+        <div id="results" class="mt-6 hidden">
+            <h2 class="text-xl font-semibold text-gray-800">Results</h2>
+            <div class="mt-4 p-4 bg-gray-50 rounded-md shadow">
+                <p id="profit" class="text-lg font-medium text-gray-700"></p>
+                <p id="real-profit" class="text-lg font-medium text-gray-700"></p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
